@@ -28,8 +28,17 @@ body {
   line-height: 1.5em;
   background-color: var(--fundo-principal);
   color: var(--texto);
+  transition: background-color .3s, color .3s;
 }
 
+body.escuro {
+  --fundo-principal: #222222;
+  --texto: #e0e0e0;
+  --texto-inverso: #333333;
+  --destaque:#4fa1ff;
+  --destaque-inverso: #8abed3;
+  --fundo-card: #444444;
+}
 
 header {
   background-color: var(--destaque);
@@ -258,7 +267,23 @@ footer a:hover {
   color: var(--destaque-inverso);
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
+  main {
+    grid-template-columns: auto 300px 1fr auto;
+    grid-template-rows: auto 1fr;
+  }
+
+  section#ficha {
+    grid-column: 2 / 3;
+    position: sticky;
+    height: fit-content;
+    top: 64px;
+  }
+
+  section#detalhes {
+    grid-column: 3 / 4;
+  }
+
   #skill-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -273,5 +298,11 @@ footer a:hover {
     aspect-ratio: 1/1;
     max-width: 20%;
     max-height: 200px;
+  }
+
+  footer {
+    grid-row: 2 / 3;
+    position: sticky;
+    bottom: 0;
   }
 }
